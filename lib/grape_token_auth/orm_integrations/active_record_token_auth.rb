@@ -4,7 +4,7 @@ module GrapeTokenAuth
       attr_accessor :password, :password_confirmation
 
       def self.included(base)
-        base.serialize :tokens, JSON
+        #  base.serialize :tokens, JSON
         base.after_initialize { self.tokens ||= {} }
         base.validates :password, presence: true, on: :create
         base.validate :password_confirmation_matches,
